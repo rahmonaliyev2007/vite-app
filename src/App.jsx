@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
-import withLogger from './Components/withLogger';
+import withLogger from './Components/WithLoggerTogo';
 import Avatar from './Components/Avatar'
 import Greating from './Components/Greating';
 import Style from './Components/Style';
@@ -28,7 +28,7 @@ function App() {
   const [form2Input, setForm2Input] = useState(null)
   const [isSuccess, setIsSuccess] = useState(false)
   const [buttonChange, setButtonChange] = useState('reset');
-  const showAlert = (alertTXT) => {
+  const showAlert = () => {
     alert(alertTXT ? `You written this : ${alertTXT}` : "You clicked button");
   };
   const showForm = (e) => {
@@ -42,7 +42,7 @@ function App() {
         <div className="box-left">
           <h2>1) Avatar qoshish <span style={{fontSize: "13px"}}>( Tayyor URL: https://as2.ftcdn.net/v2/jpg/04/27/16/05/1000_F_427160582_w0D5Z01pVaz32w7JzzNWTtE2n1VvvKmi.jpg )</span></h2>
           <input type="text" onChange={(e) => { setVaqtinchaImg(e.target.value) }} placeholder='img URL' />
-          <input type="text" onChange={(e) => { setVaqtinchaAlt(e.target.value) }} value='img ALT' />
+          <input type="text" onChange={(e) => { setVaqtinchaAlt(e.target.value) }} placeholder='img ALT' />
           <button onClick={() => {
             setAvatarImg(vaqtinchaImg)
             setAvatarAlt(vaqtinchaAlt)
@@ -64,7 +64,7 @@ function App() {
           <h2>3) Style</h2>
           <label>
             <span>Bg Color</span>
-            <input type="color" onChange={(e) => { setColor(e.target.value) }} value="#fff" />
+            <input type="color" onChange={(e) => { setColor(e.target.value) }} value={color || "#ffffff"} />
           </label>
           <label>
             <span>Width</span>
